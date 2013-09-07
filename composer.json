@@ -1,0 +1,14 @@
+{
+    "name"    : "elnebuloso/powerpos",
+    "require" : {
+        "php"                      : ">=5.3.3",
+        "zendframework/zend-loader": "2.*",
+        "elnebuloso/hive"          : "dev-master",
+        "elnebuloso/flex"          : "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Hive\\": "src/"
+        }
+    }
+}
