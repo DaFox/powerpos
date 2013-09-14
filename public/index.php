@@ -1,13 +1,24 @@
 <?php
-// define constants
-define('APPLICATION_ROOT', dirname(dirname(__FILE__)));
-defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
-
-// this makes our life easier when dealing with paths. everything is relative to the application root now.
+// this makes our life easier when dealing with paths.
+// everything is relative to the application root now.
 chdir(dirname(__DIR__));
 
-// setup autoloading
-require 'autoload.php';
+// composer autoloading
+if(file_exists('vendor/autoload.php')) {
+    $loader = include 'vendor/autoload.php';
+}
 
-echo '<h1>coming soon: powerpos</h1>';
-echo '<h2>current version: ' . \Powerpos\Version::getVersion() . '</h2>';
+// error reporting
+error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'on');
+
+// run hive
+$hive = new \Hive\Hive();
+
+$hive->getRouter()->createRoute('index')->when('^/$')->then(function ($hive) {
+    echo '<h1>powerpos</h1>';
+    echo \Powerpos\Version::getVersion();
+});
+
+$hive->run();
