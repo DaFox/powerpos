@@ -1,9 +1,8 @@
 {
-    "name"    : "elnebuloso/powerpos",
-    "require" : {
-        "php"                      : ">=5.3.3",
-        "elnebuloso/flex"          : "dev-master",
-        "elnebuloso/hive"          : "dev-master"
+    "name": "elnebuloso/powerpos",
+    "require": {
+        "php": ">=5.3.3",
+        "elnebuloso/flex": "dev-master"
     },
     "autoload": {
         "psr-0": {
