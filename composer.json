@@ -1,8 +1,16 @@
 {
     "name": "elnebuloso/powerpos",
+    "description": "point of sale management system",
+    "type": "project",
+    "keywords":
+        [
+            "framework",
+            "mvc"
+        ],
+    "license": "MIT",
     "require": {
         "php": ">=5.3.3",
-        "elnebuloso/flex": "dev-master"
+        "elnebuloso/flex": "1.*"
     },
     "autoload": {
         "psr-0": {
