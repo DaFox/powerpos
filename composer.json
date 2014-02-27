@@ -4,8 +4,7 @@
     "type": "project",
     "keywords":
         [
-            "framework",
-            "mvc"
+            "customer"
         ],
     "license": "MIT",
     "require": {
