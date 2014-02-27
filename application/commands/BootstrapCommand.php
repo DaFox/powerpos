@@ -11,7 +11,7 @@ use Flex\Application\Command\WebCommand;
 class BootstrapCommand extends WebCommand {
 
     /**
-     * @return mixed|void
+     * @return void
      */
     public function dispatch() {
     }

@@ -11,7 +11,7 @@ use Flex\Application\Command\WebCommand;
 class ErrorCommand extends WebCommand {
 
     /**
-     * @return mixed|void
+     * @return array
      */
     public function dispatch() {
         return array(
