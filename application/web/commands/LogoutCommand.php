@@ -4,15 +4,17 @@ namespace PowerposApplication;
 use Flex\Application\Command\WebCommand;
 
 /**
- * Class BootstrapCommand
+ * Class LogoutCommand
  *
  * @package PowerposApplication
+ * @author Jan Thönneßen <jeff.tunessen@gmail.com>
  */
-class BootstrapCommand extends WebCommand {
+class LogoutCommand extends WebCommand {
 
     /**
      * @return void
      */
     public function dispatch() {
+        $this->redirectToPath('/');
     }
 }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/vendor/twitter/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/vendor/twitter/bootstrap/3.1.0/css/dashboard.css">
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/install.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -23,6 +24,12 @@
 <body>
 
 <div class="container">
+    <div class="page-header">
+        <h1>Powerpos <?php echo \Powerpos\Version::getVersion(); ?>
+            <small>point of sale management system</small>
+        </h1>
+    </div>
+
     <?php echo $this->content; ?>
 </div>
 

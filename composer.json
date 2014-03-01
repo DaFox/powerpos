@@ -4,7 +4,8 @@
     "type": "project",
     "keywords":
         [
-            "customer"
+            "customer",
+            "poi"
         ],
     "license": "MIT",
     "require": {

@@ -14,7 +14,7 @@ chdir(dirname(__DIR__));
 include 'autoload.php';
 
 // start application
-$app = new WebApplication(include 'configs/application.php');
+$app = new WebApplication('application/web/configs/application.php', 'development');
 
 // run application
 $app->run();

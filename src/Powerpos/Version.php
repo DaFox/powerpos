@@ -5,7 +5,7 @@ namespace Powerpos;
  * Class Version
  *
  * @package Powerpos
- * @author Jan Thönneßen <jan.thoennessen@googlemail.com>
+ * @author Jan Thönneßen <jeff.tunessen@gmail.com>
  */
 final class Version {
 
