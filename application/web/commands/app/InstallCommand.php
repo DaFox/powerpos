@@ -2,9 +2,7 @@
 namespace PowerposApplication\App;
 
 use Flex\Application\Command\WebCommand;
-use Flex\Crypt\Rijandel256Crypt;
-use Flex\Registry;
-use Zend\Config\Config;
+use Powerpos\Application;
 
 /**
  * Class InstallCommand
@@ -18,36 +16,38 @@ class InstallCommand extends WebCommand {
      * @return void
      */
     public function dispatch() {
+        $application = new Application();
+        $configuration = $application->readConfiguration(realpath('spool'));
+
+        if($configuration !== false) {
+            $this->redirectToPath('/');
+        }
+
         $errors = null;
 
-        $crypt = new Rijandel256Crypt(Registry::get('installCryptKey'));
         $adminUsername = null;
         $adminPassword = null;
-
-        // check if spool folder is writeable
-        if(!is_writable('spool')) {
-            $errors[] = 'Spool Folder ist nicht schreibbar';
-        }
 
         if($this->getRequest()->isPost()) {
             $adminUsername = $this->getRequest()->getPost('adminUsername');
             $adminPassword = $this->getRequest()->getPost('adminPassword');
 
             if(empty($adminUsername)) {
-                $errors[] = 'Bitte Admin Username eintragen';
+                $errors[] = 'Please enter Admin Username';
             }
 
             if(empty($adminPassword)) {
-                $errors[] = 'Bitte Admin Passwort eintragen';
+                $errors[] = 'Please enter Admin Password';
             }
 
             if(empty($errors)) {
-                $config = new Config(array(
+                $application = new Application();
+                $application->saveConfiguration(realpath('spool'), array(
                     'adminUsername' => $adminUsername,
                     'adminPassword' => $adminPassword
                 ));
 
-                file_put_contents('spool/installation.dat', $crypt->encrypt(serialize($config->toArray())));
+                $this->redirectToPath('/');
             }
         }
 

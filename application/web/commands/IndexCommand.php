@@ -2,7 +2,7 @@
 namespace PowerposApplication;
 
 use Flex\Application\Command\WebCommand;
-use Flex\Auth\CryptCookie;
+use Powerpos\Application;
 
 /**
  * Class IndexCommand
@@ -16,6 +16,13 @@ class IndexCommand extends WebCommand {
      * @return void
      */
     public function dispatch() {
+        $application = new Application();
+        $configuration = $application->readConfiguration(realpath('spool'));
+
+        if($configuration === false) {
+            $this->redirectToPath('/app/install');
+        }
+
 //        $cookie = new CryptCookie('user_auth', $this->getApplication()->getConfig()->user_auth_secret);
 //
 //        if($cookie->read()) {
