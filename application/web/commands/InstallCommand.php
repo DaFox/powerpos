@@ -1,8 +1,8 @@
 <?php
-namespace PowerposApplication\App;
+namespace PowerposApplication;
 
 use Flex\Application\Command\WebCommand;
-use Powerpos\Application;
+use Powerpos\Installation;
 
 /**
  * Class InstallCommand
@@ -13,13 +13,13 @@ use Powerpos\Application;
 class InstallCommand extends WebCommand {
 
     /**
-     * @return void
+     * @return array
      */
     public function dispatch() {
-        $application = new Application();
-        $configuration = $application->readConfiguration(realpath('spool'));
+        $installation = new Installation();
+        $installation = $installation->readInstallation(realpath('spool'));
 
-        if($configuration !== false) {
+        if($installation !== false) {
             $this->redirectToPath('/');
         }
 
@@ -41,8 +41,8 @@ class InstallCommand extends WebCommand {
             }
 
             if(empty($errors)) {
-                $application = new Application();
-                $application->saveConfiguration(realpath('spool'), array(
+                $installation = new Installation();
+                $installation->saveInstallation(realpath('spool'), array(
                     'adminUsername' => $adminUsername,
                     'adminPassword' => $adminPassword
                 ));

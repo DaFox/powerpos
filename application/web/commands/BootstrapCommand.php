@@ -2,7 +2,6 @@
 namespace PowerposApplication;
 
 use Flex\Application\Command\WebCommand;
-use Flex\Registry;
 
 /**
  * Class BootstrapCommand
